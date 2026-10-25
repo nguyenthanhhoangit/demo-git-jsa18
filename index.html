@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007bff">
+    <title>Chat Realtime - Firebase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="chat-container">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-content">
+                    <h1 class="app-title">💬 Chat Realtime</h1>
+                    <p class="app-subtitle">Powered by Firebase</p>
+                </div>
+            </header>
+
+            <!-- Auth Section -->
+            <div id="auth-section" class="auth-section" style="display: block;">
+                <div class="welcome-container">
+                    <div class="welcome-icon">😊</div>
+                    <h2>Chào mừng bạn!</h2>
+                    <p>Vui lòng đăng nhập để bắt đầu trò chuyện</p>
+                    <button id="login-btn" class="btn btn-primary btn-google">
+                        <i class="fab fa-google"></i>
+                        <span>Đăng nhập bằng Google</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div id="chat-section" class="chat-section" style="display: none;">
+                <!-- User Info Bar -->
+                <div class="user-info-bar">
+                    <div class="user-profile">
+                        <img id="user-avatar" class="user-avatar" src="" alt="Avatar">
+                        <div class="user-details">
+                            <h3 id="user-name" class="user-name"></h3>
+                            <span id="user-status" class="user-status online">🟢 Online</span>
+                        </div>
+                    </div>
+                    <button id="logout-btn" class="btn btn-secondary btn-sm" title="Đăng xuất">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-box" id="chat-box">
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <p>Bắt đầu cuộc trò chuyện</p>
+                        <p class="empty-text-small">Chào hỏi và bắt đầu giao tiếp ngay!</p>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="chat-input">
+                    <input type="text" id="message" class="message-input" placeholder="Nhập tin nhắn..." maxlength="500" autocomplete="off">
+                    <div class="input-actions">
+                        <span id="char-count" class="char-count">0/500</span>
+                        <button id="sendBtn" class="btn btn-send" title="Gửi tin nhắn (Enter)">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
